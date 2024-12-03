@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <a href="/logout">Logout</a>
+    
+    <h2>Students</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Results</th>
+        </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+            <td>{{ student[2] }}</td>
+            <td><a href="/student/{{ student[0] }}">View Results</a></td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">No students found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/student/add"><button>Add Student</button></a>
+
+    <h2>Quizzes</h2>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Subject</th>
+            <th>Number of Questions</th>
+            <th>Date</th>
+        </tr>
+        {% for quiz in quizzes %}
+        <tr>
+            <td>{{ quiz[0] }}</td>
+            <td>{{ quiz[1] }}</td>
+            <td>{{ quiz[2] }}</td>
+            <td>{{ quiz[3] }}</td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">No quizzes found.</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/quiz/add"><button>Add Quiz</button></a>
+    <a href="/results/add"><button>Add Quiz Result</button></a>
+</body>
+</html>
